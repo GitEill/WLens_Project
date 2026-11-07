@@ -64,6 +64,7 @@ Note: In the current version, the tool runs in a fixed order: Denoise → Backgr
 ## The Parameters (Manual Mode)
 
 When switching to **Manual Mode**, you can fine-tune the following parameters:
+![parameters](https://github.com/GitEill/WLens_Project/blob/1c4caf69066b4535b280fe85f4f293271833d001/demo%20image/parameters.png)
 
 | Processing Step | UI Parameter | Description |
 | :--- | :--- | :--- |
