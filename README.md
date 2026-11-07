@@ -60,7 +60,7 @@ Note: In the current version, the tool runs in a fixed order: Denoise → Backgr
 **Export Results:** Download the processed images and a CSV report summarizing the quantitative metrics for your dataset.
 
 After a run, the original and processed images will be shown in the right side gallery.
-![compare]([demo image/Compare.png](https://github.com/GitEill/WLens_Project/blob/e2ce02cf1d62c45b65d7202db1f1c0fca23ba639/demo%20image/Compare.png))
+![compare](https://github.com/GitEill/WLens_Project/blob/e2ce02cf1d62c45b65d7202db1f1c0fca23ba639/demo%20image/Compare.png)
 
 ---
 
