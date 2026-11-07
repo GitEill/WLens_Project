@@ -45,7 +45,10 @@ Upload Images: Open the web UI and upload one or more .tif or .tiff microscopy i
 
 **Auto Mode:** Automatically detects image type and applies recommended preprocessing steps.
 
-**Manual Mode:** Manually select steps and adjust parameters (see The Parameters section below).
+**Save the processed images:** Check this flag to allow all processed image on the list to be saved in "preprocessed images" under the installation pathway after the run. 
+Note: This function is not available in live demo
+
+**Manual Mode:** Uncheck the Auto Mode to expand manual steps and adjust parameters (see The Parameters section below).
 
 Note: In the current version, the tool runs in a fixed order: Denoise → Background Correction → Illumination Correction → Deconvolution → CLAHE.
 
@@ -119,4 +122,10 @@ Interpretation: Aggressive contrast enhancement (e.g., high CLAHE clip limits) w
 ---
 
 ## Future work
+-Increase versatility of current imaging preprocessing steps
 
+-Add on Deep-learning-based semantic segmentation for microscopy images
+
+-Integration with image analysis tools
+
+-AI deployment 
