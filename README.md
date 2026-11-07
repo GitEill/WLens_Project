@@ -8,8 +8,9 @@ This tool is built with **Python, OpenCV, and Gradio**, providing an end-to-end 
 
 Live Demo: https://project-36g8.onrender.com
 (Note: If the app shows a 503 error or takes a moment to load, please wait 30–50 seconds for the free-tier server to wake up.)
-> **UI Preview**: 
-![main](demo image/main screen.png)
+> **UI Preview**:
+
+![main_screen](demo image/main_screen.png)
 
 ---
 
