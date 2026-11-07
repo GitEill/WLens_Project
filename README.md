@@ -59,6 +59,9 @@ Note: In the current version, the tool runs in a fixed order: Denoise → Backgr
 
 **Export Results:** Download the processed images and a CSV report summarizing the quantitative metrics for your dataset.
 
+After a run, the original and processed images will be shown in the right side gallery.
+![compare](demo image/Compare.png)
+
 ---
 
 ## The Parameters (Manual Mode)
