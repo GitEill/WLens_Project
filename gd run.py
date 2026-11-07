@@ -1,5 +1,11 @@
-
 import os
+
+_PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+_TEMP_DIR = os.path.join(_PROJECT_ROOT, "temp")
+os.makedirs(_TEMP_DIR, exist_ok=True)
+os.environ["GRADIO_TEMP_DIR"] = _TEMP_DIR
+
+
 import preprocess_lib as pp
 import config
 import cv2
@@ -8,6 +14,7 @@ import gradio as gr
 import numpy as np
 import traceback
 import matplotlib
+import glob
 matplotlib.use('AGG')
 import matplotlib.pyplot as plt
 from io import BytesIO
@@ -113,6 +120,10 @@ def process_image(file, auto_mode, need_denoise, need_bc, need_ic,
 
 
             # Saving option
+            for old_file in glob.glob(os.path.join(os.path.dirname(__file__), "tmp*.csv")):
+                try: os.remove(old_file)
+                except: pass
+
             if save_flag:
                 pp.save_preproiamge({path:out}, config.OUTPUT_DIR)
                 logs.append(f"saved to {config.OUTPUT_DIR}")
@@ -147,7 +158,7 @@ def process_image(file, auto_mode, need_denoise, need_bc, need_ic,
 
 
 
-def reset_defaults():
+def reset_parameters():
     """Reset all config at once"""
     return (
         config.DENOISE_KERNEL_LARGE[0],   # d_large
@@ -286,7 +297,7 @@ with gr.Blocks(title="Preprocessing", theme = gr.themes.Soft()) as demo:
     )
 
     reset_btn.click(
-        fn=reset_defaults,
+        fn=reset_parameters,
         inputs=[],
         outputs=[d_large, d_small, rball, poly,
                  clahe_flu, clahe_bri, rl_iter, psf_sigma, clahe_tile],
@@ -298,7 +309,11 @@ with gr.Blocks(title="Preprocessing", theme = gr.themes.Soft()) as demo:
         inputs=[state_tags],
         outputs=[report_file],
     )
-    
+
+import shutil
+if os.path.isdir(_TEMP_DIR):
+    shutil.rmtree(_TEMP_DIR, ignore_errors=True)
+    os.makedirs(_TEMP_DIR, exist_ok=True)
+ 
 if __name__ == "__main__":
-    demo.launch(server_name="0.0.0.0", server_port=10000)
-    #demo.queue(default_concurrency_limit=4).launch(inbrowser=True, debug=True)
+    demo.queue(default_concurrency_limit=4).launch(inbrowser=True, debug=True)
