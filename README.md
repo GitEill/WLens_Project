@@ -2,7 +2,7 @@
 
 # WLens Image Preprocessing Tool (Tempo name)
 
-An automated, interactive pipeline for preprocessing microscopy images of organoids, specifically designed for fluorescence and brightfield images. 
+An automated, interactive pipeline for preprocessing microscopy images, specifically designed for fluorescence and brightfield images. 
 
 This tool is built with **Python, OpenCV, and Gradio**, providing an end-to-end workflow: automatic image type detection, adaptive preprocessing (denoising, background correction, illumination correction, deconvolution, and CLAHE), and quantitative quality evaluation.
 
@@ -24,6 +24,39 @@ This tool solves this by:
 4. **Batch Processing & Reporting**: Processes multiple images simultaneously and exports a CSV quality report.
 
 ---
+
+## Preprocessing Pipeline Steps
+
+The pipeline executes the following steps. (Note: In the current version, the tool runs in a fixed order: Denoise → Background Correction → Illumination Correction → Deconvolution → CLAHE.) In **Auto Mode**, the tool uses intelligent flagging to decide which steps to run; in **Manual Mode**, users can freely toggle them.
+
+### 1. Denoise (Noise Reduction)
+**What it does:** Applies a Gaussian blur with adaptive kernel sizes.
+
+**Why it's needed:** Microscopy images often contain noise or random speckles. Smoothing the image before applying other filters prevents noise from being amplified, especially during deconvolution or contrast enhancement.
+
+### 2. Background Correction
+**What it does:** Removes uneven background illumination. Uses the **Rolling Ball** algorithm for fluorescence images and **2nd-degree Polynomial Fitting** for brightfield images.
+
+**Why it's needed:** Microscopes often produce a bright center and darker corners (vignetting). This step flattens the background so that subsequent contrast enhancements do not amplify the illumination gradient.
+
+### 3. Illumination Correction
+**What it does:** Applies CLAHE (Contrast Limited Adaptive Histogram Equalization) to the **L-channel** in the LAB color space.
+
+**Why it's needed:** Fluorescence images often have a very dark background with sparse signals. CLAHE boosts local contrast, making cellular structures more visible without over-saturating the bright regions.
+
+### 4. Deconvolution
+**What it does:** Applies the **Richardson-Lucy (RL)** algorithm with Tikhonov regularization, using a Gaussian Point Spread Function (PSF).
+
+**Why it's needed:** Optical systems inherently blur images. Deconvolution mathematically reverses this blur to restore sharpness and separate closely spaced objects.
+
+### 5. CLAHE (Post-processing)
+**What it does:** A second pass of CLAHE, applied specifically to fine-tune the final contrast.
+
+**Why it's needed:** After deconvolution or background correction, the overall intensity range may have changed. A final CLAHE pass ensures the image is optimally stretched for downstream analysis (e.g., segmentation).
+
+
+---
+
 
 ## How to Use
 
@@ -50,8 +83,6 @@ Upload Images: Open the web UI and upload one or more .tif or .tiff microscopy i
 Note: This function is not available in live demo
 
 **Manual Mode:** Uncheck the Auto Mode to expand manual steps and adjust parameters (see The Parameters section below).
-
-Note: In the current version, the tool runs in a fixed order: Denoise → Background Correction → Illumination Correction → Deconvolution → CLAHE.
 
 **Run the Pipeline:** Click the Run button to process the images. You can view the original and processed images side by side along with their intensity histograms.
 
