@@ -160,10 +160,10 @@ Interpretation: Aggressive contrast enhancement (e.g., high CLAHE clip limits) w
 ## Reference
 
 
-   * Computer Vision - Image Preprocessing Techniques*. [https://www.tutorialspoint.com/computer-vision/computer-vision-image-preprocessing-techniques.htm](https://www.tutorialspoint.com/computer-vision/computer-vision-image-preprocessing-techniques.htm)
+   * Computer Vision - Image Preprocessing Techniques. [https://www.tutorialspoint.com/computer-vision/computer-vision-image-preprocessing-techniques.htm](https://www.tutorialspoint.com/computer-vision/computer-vision-image-preprocessing-techniques.htm)
 
 
-   * Gonzalez, R. C., & Woods, R. E. (2018). *Digital Image Processing* (4th ed.). Pearson.*
+   * Gonzalez, R. C., & Woods, R. E. (2018). *Digital Image Processing* (4th ed.). Pearson.
 
     
    * OpenCV Documentation: *Histograms - 2: Histogram Equalization (CLAHE)*.  [https://docs.opencv.org/4.x/d5/daf/tutorial_py_histogram_equalization.html](https://docs.opencv.org/4.x/d5/daf/tutorial_py_histogram_equalization.html)
@@ -173,11 +173,18 @@ Interpretation: Aggressive contrast enhancement (e.g., high CLAHE clip limits) w
 
 
    * Scikit-Image Documentation: *Richardson-Lucy deconvolution*.  [https://scikit-image.org/docs/stable/auto_examples/filters/plot_deconvolution.html](https://scikit-image.org/docs/stable/auto_examples/filters/plot_deconvolution.html)
-   *Sage, D., et al. (2017). DeconvolutionLab2: An open-source software for deconvolution microscopy. Methods, 115, 28-41.* 
+
+     
+   * Sage, D., et al. (2017). DeconvolutionLab2: An open-source software for deconvolution microscopy. Methods, 115, 28-41.* 
 
 
    * OpenCV Documentation: *Laplacian Operator and Image Gradients*.  [https://docs.opencv.org/4.x/d5/db5/tutorial_laplace_operator.html](https://docs.opencv.org/4.x/d5/db5/tutorial_laplace_operator.html)
 
+
+   * Understanding Image Quality Metrics: A Comprehensive Guide. [https://furnets.com/2025/02/17/understanding-image-quality-metrics-a-comprehensive-guide/](https://furnets.com/2025/02/17/understanding-image-quality-metrics-a-comprehensive-guide/)
+
+
+---
 
 ## Future work
 -Increase versatility of current imaging preprocessing steps
