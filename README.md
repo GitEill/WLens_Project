@@ -1,6 +1,6 @@
 # GitEill Project
 
-# WLens Image Preprocessing Tool (Tempo name)
+# WLens Image Preprocessing Tool 
 
 An automated, interactive pipeline for preprocessing microscopy images, specifically designed for fluorescence and brightfield images. 
 
@@ -154,6 +154,7 @@ If CLAHE or illumination correction is applied, the background peak broadens to 
 If Denoising is applied, the high-intensity tail is suppressed (smoothing out shot noise).
 
 Interpretation: Aggressive contrast enhancement (e.g., high CLAHE clip limits) will visually improve the image but might decrease the absolute Laplacian sharpness metric, because smoothing out edges reduces high-frequency gradients. The histogram visually explains the trade-off between local contrast and absolute sharpness.
+![Histogram](https://github.com/GitEill/WLens_Project/blob/6b4382213f12b65369b4f6fd3e070b870bd792c7/demo%20image/histogram.png)
 
 ---
 
